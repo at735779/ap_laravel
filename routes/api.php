@@ -1,11 +1,8 @@
 <?php
 
-// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserGetController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +23,7 @@ use App\Http\Controllers\Api\UserGetController;
 //     return $request->user();
 // });
 
-Route::middleware('auth:api')->get('/user', [UserGetController::class, 'user_get']);
+Route::middleware('auth:api')->get('/user', [UserGetController::class, 'userGet']);
 
 Route::post('/login', [AuthController::class, 'login']);
 

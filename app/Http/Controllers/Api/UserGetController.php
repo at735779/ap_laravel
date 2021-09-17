@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserGetController extends Controller
 {
-    public function user_get(Request $request) {
+    public function userGet(Request $request) {
         return $request->user();
     }
 }
