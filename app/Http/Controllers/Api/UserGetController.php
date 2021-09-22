@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class UserGetController extends Controller
 {
     public function userGet(Request $request) {
-        return $request->user();
+        $user = $request->user();
+        return response()->json(compact('user'),200);
+        //return $request->user();
     }
 }
