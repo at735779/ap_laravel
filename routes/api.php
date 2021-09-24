@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\UserGetController;
+use app\Http\Controllers\Api\UserGetController;
+use app\Http\Controllers\Api\GetInterestWordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,15 @@ use App\Http\Controllers\Api\UserGetController;
 |
 */
 
+// ユーザー情報の取得
 Route::middleware('auth:api')->get('/user', [UserGetController::class, 'userGet']);
 
+// ログイン処理
 Route::post('/login', [AuthController::class, 'login']);
+
+// 興味のあるワードの登録
+Route::middleware('auth:api')->post('/post_word', [PostInterestWordController::class, 'postInterestWord']);
+
+// 登録ワードの取得
+Route::middleware('auth:api')->get('/get_word', [GetInterestWordController::class, 'getInterestWord']);
 
