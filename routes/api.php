@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
-use app\Http\Controllers\Api\UserGetController;
-use app\Http\Controllers\Api\GetInterestWordController;
+use App\Http\Controllers\Api\UserGetController;
+use App\Http\Controllers\Api\GetInterestWordController;
 
 /*
 |--------------------------------------------------------------------------

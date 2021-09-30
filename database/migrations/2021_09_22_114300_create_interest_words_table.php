@@ -16,7 +16,7 @@ class CreateInterestWordsTable extends Migration
         Schema::create('interest_words', function (Blueprint $table) {
             $table->id();
             $table->string('word');
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
