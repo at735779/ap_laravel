@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserGetController;
 use App\Http\Controllers\Api\GetInterestWordController;
+use App\Http\Controllers\Api\PostInterestWordController;
 
 /*
 |--------------------------------------------------------------------------
