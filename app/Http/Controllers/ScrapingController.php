@@ -12,6 +12,9 @@ class ScrapingController extends Controller
     {
         $client = new Client();
 
+        // 初期化
+        Scraping::truncate();
+
         // 熊本市HPの新着情報一覧を参照
         $crawler = $client->request('GET', 'https://www.city.kumamoto.jp/new_list/pub/Default.aspx?c_id=1');
 
@@ -22,7 +25,7 @@ class ScrapingController extends Controller
 
         // 1日分の更新項目のタイトルテキストを取得
         $titles = $crawler->filter('ul.list')->eq(0)->filter('li')->each(function($node){
-            $title = $node->text();
+            $title = $node->filter('a')->text();
             return $title;
         });
 
