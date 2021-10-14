@@ -7,6 +7,8 @@ use Inertia\Inertia;
 // テスト用
 use App\Http\Controllers\ScrapingController;
 use App\Http\Controllers\LookForUpdateController;
+use App\Http\Controllers\SendEmailController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +36,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // テスト用のルーティング
 Route::get('/scraping', [ScrapingController::class, 'scraping']);
-Route::get('lookforupdate', [LookForUpdateController::class, 'lookForUpdate']);
+Route::get('/lookforupdate', [LookForUpdateController::class, 'lookForUpdate']);
+Route::get('/sendemail', [SendEmailController::class, 'sendEmail']);
