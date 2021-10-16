@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataToSendsTable extends Migration
+class CreateConstantWordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateDataToSendsTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_to_sends', function (Blueprint $table) {
+        Schema::create('constant_words', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->string('title');
-            $table->string('url');
-            $table->integer('user_id');
-            $table->string('name');
-            $table->string('email');
+            $table->string('constant_word');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateDataToSendsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_to_sends');
+        Schema::dropIfExists('constant_words');
     }
 }

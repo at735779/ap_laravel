@@ -22,6 +22,7 @@ class LookForUpdateController extends Controller
                 $word = $registered_word->word;
                 $update_data = Scraping::where('title', 'like', "%$word%")->get();
                 if(isset($update_data[0])) {
+                    $date = $update_data[0]->date;
                     foreach($update_data as $update_datum) {
                         array_push($update_titles, $update_datum->title);
                         array_push($update_urls, $update_datum->url);
@@ -34,9 +35,10 @@ class LookForUpdateController extends Controller
                 $user = User::where('id', $id)->first(['id', 'name', 'email']);
                 for($i=0; $i<count($update_titles); $i++) {
                     $data_to_send = new DataToSend;
-                    $data_to_send->date = $update_data[0]->date;
+                    $data_to_send->date = $date;
                     $data_to_send->title = $update_titles[$i];
                     $data_to_send->url = $update_urls[$i];
+                    $data_to_send->user_id = $user->id;
                     $data_to_send->name = $user->name;
                     $data_to_send->email = $user->email;
                     $data_to_send->save();
