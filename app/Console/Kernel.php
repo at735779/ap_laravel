@@ -24,9 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:scraping')->weeklyOn(5, '14:45');
-        $schedule->command('command:lookforupdate')->weeklyOn(5, '14:45');
-        $schedule->command('command:sendemail')->weeklyOn(5, '14:45');
+        $schedule->command('command:scraping')->dailyAt('19:58');
+        $schedule->command('command:lookforupdate')->dailyAt('19:59');
+        $schedule->command('command:sendemail')->dailyAt('20:00');
     }
 
     /**

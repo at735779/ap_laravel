@@ -49,18 +49,18 @@ class ScrapingCommand extends Command
         $crawler = $client->request('GET', 'https://www.city.kumamoto.jp/new_list/pub/Default.aspx?c_id=1');
 
         // 更新日の取得
-        $date_string =  $crawler->filter('div.bunrui')->eq(1)->text();
+        $date_string =  $crawler->filter('div.bunrui')->eq(0)->text();
         $date = DateTime::createFromFormat('Y年m月d日', $date_string);
         $date->format('Y-m-d');
 
         // 1日分の更新項目のタイトルテキストを取得
-        $titles = $crawler->filter('ul.list')->eq(1)->filter('li')->each(function($node){
+        $titles = $crawler->filter('ul.list')->eq(0)->filter('li')->each(function($node){
             $title = $node->filter('a')->text();
             return $title;
         });
 
         // 1日分の更新項目のURLを取得
-        $urls = $crawler->filter('ul.list')->eq(1)->filter('li')->each(function($node){
+        $urls = $crawler->filter('ul.list')->eq(0)->filter('li')->each(function($node){
             $url = $node->filter('a')->attr('href');
             return $url;
         });

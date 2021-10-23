@@ -11,6 +11,7 @@ use App\Models\DataToSend;
 class LookForUpdateController extends Controller
 {
     public function lookForUpdate() {
+        DataToSend::truncate();
         $user_ids = InterestWord::groupBy('user_id')->get('user_id');
         $update_titles = array();
         $update_urls = array();
